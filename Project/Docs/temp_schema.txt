@@ -1,0 +1,24 @@
+mysql  Ver 14.14 Distrib 5.5.49, for debian-linux-gnu (x86_64) using readline 6.3
+
+CREATE TABLE `accounts` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(15) NOT NULL,
+  `password` varchar(512) DEFAULT NULL,
+  `email` varchar(40) NOT NULL,
+  `lastLogin` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `joinDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id` (`id`),
+  UNIQUE KEY `username` (`username`),
+  UNIQUE KEY `email` (`email`)
+); 
+
+
+CREATE TABLE `temperature` (
+  `tempID` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `tempTime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `tempVal` float NOT NULL,
+  `userID` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`tempID`),
+  UNIQUE KEY `tempID` (`tempID`)
+);
